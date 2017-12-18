@@ -256,14 +256,14 @@ public int run(String[] args) throws Exception {
 	// conf.setInt("yarn.app.mapreduce.am.resource.mb", 10_000);
 	conf.set("es.resource", "souza_livingknowledge_2/capture");
 //	conf.set("es.mapping.id", "id");
-	conf.set("es.batch.size.bytes", "200mb");
+	conf.set("es.batch.size.bytes", "15mb");
 	//conf.setBoolean("mapred.map.tasks.speculative.execution", false);
 	//conf.setBoolean("mapred.reduce.tasks.speculative.execution", false);
 	//conf.set("es.input.json", "yes");
 	//conf.set("shield.user", "souza:pri2006");
 	//  conf.set(k	"es.net.http.auth.user", "souza");
 	// conf.set("es.net.http.auth.pass", "pri2006");
-	conf.set("es.batch.size.entries","100000");
+	conf.set("es.batch.size.entries","10000");
 	//conf.set("es.port", "9200");
 	conf.set("es.port", "9205");
 	conf.setBoolean("mapreduce.job.user.classpath.first", true);
