@@ -113,10 +113,10 @@ public static class SampleMapper extends Mapper<Object, Text, Text, MapWritable 
 				final Matcher m = pattern.matcher(line);
 				m.find();
 				String url = m.group(1);
-				doc.put(new Text("ourl"), new Text(url));
+				doc.put(new Text("url"), new Text(url));
 				} catch (Exception e)
 				{
-					doc.put(new Text("ourl"), new Text(""));
+					doc.put(new Text("url"), new Text(""));
 
 				}
 				
