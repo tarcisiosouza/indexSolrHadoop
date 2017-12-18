@@ -92,59 +92,89 @@ public static class SampleMapper extends Mapper<Object, Text, Text, MapWritable 
 			String line = token.nextToken();
 			if (line.contains("<field name=\"id\">"))
 			{
+				try {
 				final Pattern pattern = Pattern.compile("<field name=\"id\">(.+?)</field>");
 				final Matcher m = pattern.matcher(line);
 				m.find();
 				id = m.group(1);
 				doc.put(new Text("id"), new Text(id));
+				} catch (Exception e)
+				{
+					doc.put(new Text("id"), new Text(""));
+
+				}
 				
 			}
 			
 			if (line.contains("<field name=\"url\">"))
 			{
+				try {
 				final Pattern pattern = Pattern.compile("<field name=\"url\">(.+?)</field>");
 				final Matcher m = pattern.matcher(line);
 				m.find();
 				String url = m.group(1);
 				doc.put(new Text("ourl"), new Text(url));
+				} catch (Exception e)
+				{
+					doc.put(new Text("ourl"), new Text(""));
 
+				}
 				
 			}
 			if (line.contains("<field name=\"title\">"))
 			{
+				try {
 				final Pattern pattern = Pattern.compile("<field name=\"title\">(.+?)</field>");
 				final Matcher m = pattern.matcher(line);
 				m.find();
 				String title = m.group(1);
 				doc.put(new Text("title"), new Text(title));
-				
+				} catch (Exception e)
+				{
+					doc.put(new Text("title"), new Text(""));
+				}
 			}
 			if (line.contains("<field name=\"sourcerss\">"))
 			{
+				try {
 				final Pattern pattern = Pattern.compile("<field name=\"sourcerss\">(.+?)</field>");
 				final Matcher m = pattern.matcher(line);
 				m.find();
 				String sourcerss = m.group(1);
 				doc.put(new Text("sourcess"), new Text(sourcerss));
-				
+				} catch (Exception e)
+				{
+					doc.put(new Text("sourcess"), new Text(""));
+
+				}
 			}
 			if (line.contains("<field name=\"host\">"))
 			{
+				try {
 				final Pattern pattern = Pattern.compile("<field name=\"host\">(.+?)</field>");
 				final Matcher m = pattern.matcher(line);
 				m.find();
 				String host = m.group(1);
 				doc.put(new Text("host"), new Text(host));
-				
+				} catch (Exception e)
+				{
+					doc.put(new Text("host"), new Text(""));
+
+				}
 			}
 			if (line.contains("<field name=\"date\">"))
 			{
+				 try
+				  {
 				final Pattern pattern = Pattern.compile("<field name=\"date\">(.+?)</field>");
 				final Matcher m = pattern.matcher(line);
 				m.find();
 				String date = m.group(1);
 				doc.put(new Text("ts"), new Text(date));
-				
+				  } catch (Exception e)
+				 {
+					  doc.put(new Text("ts"), new Text("")); 
+				 }
 			}
 			//<field name="content">
 			
